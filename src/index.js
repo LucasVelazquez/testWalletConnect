@@ -13,13 +13,11 @@ let provider;
 let connectWalletButton;
 
 function app() {
-  console.log("aawdawdawd");
   connectWalletButton = document.getElementById("connect-wallet");
   connectWalletButton.addEventListener("click", connectWallet);
 }
 
 async function connectWallet() {
-  console.log("daw");
   provider = new WalletConnectProvider(walletConectConfig);
   web3 = new Web3(provider);
 
