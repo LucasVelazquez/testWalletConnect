@@ -21,11 +21,12 @@ async function connectWallet() {
   provider = new WalletConnectProvider(walletConectConfig);
   web3 = new Web3(provider);
 
+  const signatureResult = document.getElementById("signature");
   try {
-    const signatureResult = document.getElementById("signature");
     await provider.enable();
     const accounts = await web3.eth.getAccounts();
 
+    console.log(accounts);
     const signMessage = "Sign this message";
     const signature = await web3.eth.personal.sign(web3.utils.utf8ToHex(signMessage), accounts[0]);
 
